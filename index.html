@@ -14,22 +14,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon.ico">
 
+  <link rel="stylesheet" href="css/jqui.css">
   <link rel="stylesheet" href="css/style.css?v=2">
   <script src="js/libs/modernizr-1.7.min.js"></script>
-  <script src="js/libs/jquery-1.6.2.min.js"></script>
-  <script src="js/libs/jquery-ui-1.8.16.custom.min.js"></script>
-  <script src="js/canvaslab.min.js"></script>
+  <script src="js/libs/jquery-1.7.1.min.js"></script>
+  <script src="js/libs/jquery-ui-1.8.18.custom.min.js"></script>
+  <script src="js/canvaslab.js"></script>
 
 </head>
 
 
-
-<body onload="draw(rval,bval,gval,orgx,orgy,sides,true);">  
+<body onload="draw(rval,bval,gval,orgx,orgy,sides,true);gengrid(10);">  
 
   <div id="container">
 	<header>CANVAS LAB</header>
-		<div id="left">
-  			<canvas id="canvas" width="1000" height="500"></canvas>  
+	<div id="left">
+				<div id="canvasplace"></div>
+				<canvas id="grid" width="1000" height="500"></canvas>
+				<canvas id="canvas" width="1000" height="500"></canvas>
 			<div id="sidecontrols">
 				<li id="point0">
 					<h2>Point 0</h2>
@@ -49,27 +51,31 @@
 
 			<div class="ibox">
 				<h2>Red</h2>
-				<input size="10" class="aninput" id="red" type="text" value="0" maxlength="3" />
-				<h3>0-255</h3>
+				<input size="3" class="aninput color-input" id="red" type="text" value="0" maxlength="3" />
+				<div class="slider" id="red-slider"></div>
 
 				<h2>Green</h2>
-				<input size="10" class="aninput" id="green" type="text" value="0" maxlength="3" />
-				<h3>0-255</h3>
+				<input size="3" class="aninput color-input" id="green" type="text" value="0" maxlength="3" />
+				<div class="slider" id="green-slider"></div>
 
 				<h2>Blue</h2>
-				<input size="10" class="aninput" id="blue" type="text" value="0" maxlength="3" />
-				<h3>0-255</h3>
+				<input size="3" class="aninput color-input" id="blue" type="text" value="0" maxlength="3" />
+				<div class="slider" id="blue-slider"></div>
 			</div>
 
 			<div class="ibox">
-
-
-
 				<h2>Sides</h2>
-				<input size="10" class="aninput" id="sides" type="text" value="4" maxlength="3" />
-				<h3>3-100</h3>
+				<input size="3" class="aninput shape-input" id="sides" type="text" value="4" maxlength="3" />
+				<div class="slider" id="side-slider"></div>
 
-				<div class="checkbox"><input type="checkbox" id="showpoints" value="0" /> Show Points</div> 
+				<h2>Grid Increment</h2>
+				<div class="displayval" id="gridscaleval">10</div>
+				<div class="slider" id="gridscale"></div>
+
+				<div class="checkbox" id="gridcontrols">
+					<input type="checkbox" id="showgrid" value="0" /> Show Grid 
+					<input type="checkbox" id="snapgrid" value="0" /> Snap to Grid</div> 
+				<div class="checkbox"><input type="checkbox" id="showpoints" value="1" checked="true" /> Show Points</div> 
 
 			</div>
 
