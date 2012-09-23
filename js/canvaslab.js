@@ -60,11 +60,25 @@
 	//generate grid
 	function gengrid(gridscale) {
 		cleargrid();
-		canvaswidth = $('#canvas').width();
-		canvasheight = $('#canvas').height();
+		canvaswidth = $('#canvas').attr('width');
+		canvasheight = $('#canvas').attr('height');
 		var thegrid = document.getElementById('grid');
+
 		if (thegrid.getContext){
 			var grid_ctx = thegrid.getContext('2d');
+
+			// Retina wizardry!
+			if ( window.devicePixelRatio ) {
+				var el = $('#grid');
+				var elWidth = $('#canvas').width();
+				var elHeight = $('#canvas').height();
+				el.attr('width', elWidth * window.devicePixelRatio);
+				el.attr('height', elHeight * window.devicePixelRatio);
+				el.css('width', elWidth);
+				el.css('height', elHeight);
+				grid_ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+			}
+
 			//clear canvas
 			grid_ctx.setTransform(1, 0, 0, 1, 0, 0);
 			grid_ctx.clearRect(0, 0, thegrid.width, thegrid.height);
@@ -192,6 +206,19 @@
 	  var canvas = document.getElementById('canvas');
 	  if (canvas.getContext){
 			var ctx = canvas.getContext('2d');
+
+			// Retina wizardry!
+			if ( window.devicePixelRatio ) {
+				var el = $('#canvas');
+				var elWidth = $('#canvas').width();
+				var elHeight = $('#canvas').height();
+				el.attr('width', elWidth * window.devicePixelRatio);
+				el.attr('height', elHeight * window.devicePixelRatio);
+				el.css('width', elWidth);
+				el.css('height', elHeight);
+				ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+			}
+
 			//clear canvas
 			ctx.save();
 			ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -561,7 +588,7 @@
 			slide: function(event, ui) {
 				$('#gridscaleval').html(ui.value);
 				gridscale = ui.value;
-				gengrid(ui.value);								
+				gengrid(ui.value * window.devicePixelRatio);								
 			},
 		});
 
