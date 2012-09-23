@@ -145,6 +145,14 @@ body {
 	background:url('../img/diagonalnoise.png') repeat;
 }
 
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 3/2) {
+  body {
+		background:url('../img/diagonalnoise@2X.png') repeat;
+    -webkit-background-size: 150px 150px;
+    background-size: 150px 150px;
+  }
+}
+
 #container {
 	margin:20px auto;
 	width:1200px;
