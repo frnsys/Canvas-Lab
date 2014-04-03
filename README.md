@@ -1,4 +1,4 @@
-[Canvas Lab](http://yadonchow.com/projects/canvaslab) is an experimental tool providing an Illustrator-like interface for working with shapes in HTML5's canvas element.
+[Canvas Lab](http://frnsys.com/labs/canvas-lab/) is an experimental tool providing an Illustrator-like interface for working with shapes in HTML5's canvas element.
 
 The canvas element, introduced as a part of HTML5, is extremely powerful and allows for custom shapes to be drawn and manipulated through lines and bezier curves. However, HTML5 canvas’s usage is not very intuitive, and makes building custom shapes quite frustrating. Canvas Lab is meant to offer an Illustrator-like interface to develop shapes, and will output the necessary Javascript code once you’re finished.
 
